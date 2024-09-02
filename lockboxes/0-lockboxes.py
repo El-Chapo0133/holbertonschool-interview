@@ -14,7 +14,7 @@ def canUnlockAll(boxes):
     
     while True:
         for i in new_keys:
-            if i not in openned_boxes:
+            if i not in openned_boxes and i < len(boxes):
                 openned_boxes.append(i)
                 for j in boxes[i]:
                     if j not in openned_boxes:
