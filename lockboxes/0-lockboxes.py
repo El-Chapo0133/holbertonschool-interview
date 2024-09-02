@@ -1,4 +1,4 @@
-
+#!/usr/bin/python3
 
 def canUnlockAll(boxes):
     new_keys = boxes[0]
