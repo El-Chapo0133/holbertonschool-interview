@@ -1,5 +1,9 @@
 #!/usr/bin/python3
 
+"""
+module is documented
+"""
+
 def canUnlockAll(boxes):
     """
     this module is documented
