@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 
 def canUnlockAll(boxes):
+    """
+    this module is documented
+    """
     new_keys = boxes[0]
     temp_new_keys = []
     openned_boxes = [0]
