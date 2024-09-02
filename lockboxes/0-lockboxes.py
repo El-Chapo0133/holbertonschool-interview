@@ -4,6 +4,7 @@
 module is documented
 """
 
+
 def canUnlockAll(boxes):
     """
     this module is documented
@@ -12,7 +13,7 @@ def canUnlockAll(boxes):
     new_keys = boxes[0]
     temp_new_keys = []
     openned_boxes = [0]
-    
+
     while True:
         for i in new_keys:
             if i not in openned_boxes and i < len(boxes):
