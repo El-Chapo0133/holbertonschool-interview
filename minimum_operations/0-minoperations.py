@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+"""
+This module is documented
+"""
+
 
 def minOperations(n):
     factors = []
