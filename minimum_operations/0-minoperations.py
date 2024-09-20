@@ -21,5 +21,3 @@ def minOperations(n):
         factors.append(n)
 
     return sum(factors)
-
-print(minOperations(2147483640))
