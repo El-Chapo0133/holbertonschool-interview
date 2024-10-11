@@ -62,6 +62,9 @@ static void print_grid(int grid[3][3])
  */
 int main(void)
 {
+	int grid1[3][3] = { {1,0,0}, {0,0,0}, {0,0,0}};
+	int grid2[3][3] = { {3,0,0}, {0,0,0}, {0,0,0}};
+    /*
     int grid1[3][3] = {
         {2, 2, 0},
         {2, 1, 1},
@@ -72,6 +75,7 @@ int main(void)
         {1, 0, 1},
         {0, 1, 0}
     };
+    */
 
     print_grid_sum(grid1, grid2);
 
