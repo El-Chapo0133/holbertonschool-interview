@@ -14,11 +14,11 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 
 	add_grids(grid1, grid2);
 	is_stable = is_grid_stable(grid1);
-	while (!is_stable)
+	/*while (!is_stable)
 	{
 		next_step(grid1);
 		is_stable = is_grid_stable(grid1);
-	}
+	}*/
 }
 
 /**
