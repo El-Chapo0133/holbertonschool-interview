@@ -38,12 +38,12 @@ void next_step(int grid[3][3])
 			{
 				if (i > 0)
 					grid[i-1][j] += 1;
+				if (j < 2)
+					grid[i][j+1] += 1;
 				if (i < 2)
 					grid[i+1][j] += 1;
 				if (j > 0)
 					grid[i][j-1] += 1;
-				if (j < 2)
-					grid[i][j+1] += 1;
 				
 				grid[i][j] -= 4;
 			}
