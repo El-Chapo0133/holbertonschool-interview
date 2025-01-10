@@ -23,13 +23,15 @@
 listint_t *reverse_list(listint_t *head)
 {
 	listint_t *prev = NULL;
+	listint_t *next = NULL;
 	listint_t *current = head;
 
 	while (current)
 	{
+		next = current->next;
 		current->next = prev;
 		prev = current;
-		current = current->next;
+		current = next;
 	}
 	return (prev);
 }
