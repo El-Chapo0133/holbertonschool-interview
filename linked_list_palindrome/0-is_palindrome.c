@@ -45,7 +45,7 @@ int is_palindrome(listint_t **head)
 	while (temp || temp->next)
 	{
 		second_half = second_half->next;
-		if (team && team->next)
+		if (temp && temp->next)
 			temp = temp->next->next;
 	}
 	second_half = reverse_list(second_half);
