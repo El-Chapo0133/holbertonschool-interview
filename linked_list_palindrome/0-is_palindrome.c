@@ -24,14 +24,12 @@ listint_t *reverse_list(listint_t *head)
 {
 	listint_t *prev = NULL;
 	listint_t *current = head;
-	listint_t *next = NULL;
 
 	while (current)
 	{
-		next = current->next;
 		current->next = prev;
 		prev = current;
-		current = next;
+		current = current->next;
 	}
 	return (prev);
 }
@@ -44,7 +42,7 @@ int is_palindrome(listint_t **head)
 	if (!head || !(*head)->next)
 		return (0);
 
-	while (!temp && !temp->next)
+	while (temp && temp->next)
 	{
 		second_half = second_half->next;
 		temp = temp->next->next;
