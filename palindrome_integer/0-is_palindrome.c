@@ -31,5 +31,5 @@ int is_palindrome(unsigned long n)
 		reverse += last;
 		n2 /= 10;
 	}
-	return (n == n2);
+	return (n == reverse);
 }
