@@ -42,7 +42,7 @@ int is_palindrome(listint_t **head)
 	if (!head || !(*head)->next)
 		return (0);
 
-	while (temp && temp->next)
+	while (temp || temp->next)
 	{
 		second_half = second_half->next;
 		temp = temp->next->next;
