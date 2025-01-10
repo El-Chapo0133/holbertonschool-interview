@@ -44,11 +44,10 @@ int is_palindrome(listint_t **head)
 	if (!head || !(*head)->next)
 		return (0);
 
-	while (temp || temp->next)
+	while (temp && temp->next)
 	{
 		second_half = second_half->next;
-		if (temp && temp->next)
-			temp = temp->next->next;
+		temp = temp->next->next;
 	}
 	second_half = reverse_list(second_half);
 
