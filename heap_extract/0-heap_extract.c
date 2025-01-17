@@ -35,7 +35,7 @@ size_t binary_tree_height(heap_t *root)
 
 /**
  * binary_tree_preorder - pre-order a given binary tree
- * @heap: heap of the binary tree
+ * @root: heap of the binary tree
  * @node: ptr to node in the tree
  * @height: height of the tree
  * @layer: current layer
