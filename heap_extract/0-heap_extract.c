@@ -25,7 +25,7 @@
  */
 void heapify_from_root(heap_t *heap)
 {
-	binary_tree_node_t *node, *child;
+	binary_tree_t *node, *child;
 	void *temp = NULL;
 
 	node = heap->root;
@@ -37,9 +37,9 @@ void heapify_from_root(heap_t *heap)
 		if (!node->right)
 			child = node->left;
 		else
-			child = heap->data_cmp(node->left->data, node->right->data) <= 0 ?
+			child = node->left->n < node->right->n ?
 				node->left : node->right;
-		if (heap->data_cmp(node->data, child->data) < 0)
+		if (node->n < child->n)
 			break;
 		temp = node->data;
 		node->data = child->data;
@@ -63,7 +63,7 @@ int *heap_extract(heap_t *heap)
 	if (!heap || !heap->root)
 		return (NULL);
 
-	data = heap->root->data;
+	data = heap->root->n;
 	if (heap->size == 1)
 	{
 		free(heap->root);
@@ -77,7 +77,7 @@ int *heap_extract(heap_t *heap)
 	bit >>= 2;
 	for (node = heap->root; bit > 0; bit >>= 1)
 		node = heap->size & bit ? node->right : node->left;
-	heap->root->data = node->data;
+	heap->root->n = node->n;
 	if (node->parent->left == node)
 		node->parent->left = NULL;
 	else
