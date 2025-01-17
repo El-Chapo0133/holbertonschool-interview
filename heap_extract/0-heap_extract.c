@@ -30,7 +30,7 @@ size_t binary_tree_height(heap_t *root)
 
 	height1 = root->left ? 1 + binary_tree_height(root->left) : 0;
 	height2 = root->right ? 1 + binary_tree_height(root->right) : 0;
-	return (heigth1 > height2 ? height1: height2);
+	return (height1 > height2 ? height1: height2);
 }
 
 /**
@@ -42,7 +42,7 @@ size_t binary_tree_height(heap_t *root)
  *
  * Return: void
  */
-void binary_tree_preorder(heap_t *heap, heap_t **node, size_t height,
+void binary_tree_preorder(heap_t *root, heap_t **node, size_t height,
 		size_t layer)
 {
 	if (!root)
@@ -101,7 +101,7 @@ int heap_extract(heap_t **root)
 	heap_t *temp, *node;
 
 	if (!root || !*root)
-		return (NULL);
+		return (0);
 
 	temp = *root;
 	data = temp->n;
