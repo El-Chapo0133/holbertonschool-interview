@@ -17,74 +17,109 @@
  */
 #include "binary_trees.h"
 
+
 /**
- * heapify_from_root - heapify a heap tree from root
- * @heap: heap
+ * binary_tree_height - get the height of the given binary tree
+ * @root: root 
  *
- * Return: void
+ * Return: height
  */
-void heapify_from_root(heap_t *heap)
+size_t binary_tree_height(heap_t *root)
 {
-	binary_tree_t *node, *child;
-	void *temp = NULL;
+	size_t height1, height2;
 
-	node = heap->root;
-
-	while (1)
-	{
-		if (!node->left)
-			break;
-		if (!node->right)
-			child = node->left;
-		else
-			child = node->left->n < node->right->n ?
-				node->left : node->right;
-		if (node->n < child->n)
-			break;
-		temp = node->data;
-		node->data = child->data;
-		child->data = temp;
-		node = child;
-	}
+	height1 = root->left ? 1 + binary_tree_height(root->left) : 0;
+	height2 = root->right ? 1 + binary_tree_height(root->right) : 0;
+	return (heigth1 > height2 ? height1: height2);
 }
 
 /**
- * heap_extract - extracts the root value of a Min Binary Heap
- * @heap: heap
+ * binary_tree_preorder - pre-order a given binary tree
+ * @heap: heap of the binary tree
+ * @node: ptr to node in the tree
+ * @height: height of the tree
+ * @layer: current layer
  *
- * Return: 0 on failure 1 on success
+ * Return: void
  */
-int *heap_extract(heap_t *heap)
+void binary_tree_preorder(heap_t *heap, heap_t **node, size_t height,
+		size_t layer)
 {
-	binary_tree_node_t *node;
-	size_t bit;
-	void *data;
+	if (!root)
+		return;
+	if (height == layer)
+		*node = root;
+	layer++;
+	if (root->left)
+		binary_tree_preorder(root->left, node, height, layer);
+	if (root->right)
+		binary_tree_preorder(root->right, node, height, layer);
+}
 
-	if (!heap || !heap->root)
+/**
+ * binary_tree_sort - sort the binary tree using heap_sort
+ * @root: root of binary tree
+ *
+ * Return: ptr to last node
+ */
+heap_t *binary_tree_sort(heap_t *root)
+{
+	int data;
+
+	while (root->left || root->right)
+	{
+		if (!root->right || root->left->n > root->right->n)
+		{
+			data = root->n;
+			root->n = root->left->n;
+			root->left->n = data;
+			root- = root->left;
+		}
+		else if (!root->left || root->left->n < root->right->n)
+		{
+			data = root->n;
+			root->n = root->right->n;
+			root->right->n = data;
+			root = root->right;
+		}
+	}
+
+	return (root);
+}
+
+
+
+/**
+ * heap_extract - extract the heap node
+ * @root: root node
+ *
+ * Return: value of extracted node
+ */
+int heap_extract(heap_t **root)
+{
+	int data;
+	heap_t *temp, *node;
+
+	if (!root || !*root)
 		return (NULL);
 
-	data = heap->root->n;
-	if (heap->size == 1)
+	temp = *root;
+	data = temp->n;
+	if (!temp->left && !temp->right)
 	{
-		free(heap->root);
-		heap->root = NULL;
-		heap->size = 0;
+		*root = NULL;
+		free(temp);
 		return (data);
 	}
 
-	for (bit = 1; bit <= heap->size; bit <<= 1)
-		;
-	bit >>= 2;
-	for (node = heap->root; bit > 0; bit >>= 1)
-		node = heap->size & bit ? node->right : node->left;
-	heap->root->n = node->n;
-	if (node->parent->left == node)
-		node->parent->left = NULL;
-	else
+	binary_tree_preorder(temp, &node, binary_tree_height(temp), 0);
+	temp = binary_tree_sort(temp);
+	temp->n = node->n;
+	if (node->parent->right)
 		node->parent->right = NULL;
+	else
+		node->parent->left = NULL;
 
-	heap->size--;
 	free(node);
-	heapify_from_root(heap);
 	return (data);
 }
