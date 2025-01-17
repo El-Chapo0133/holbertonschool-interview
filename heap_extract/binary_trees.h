@@ -20,6 +20,7 @@
 #define H_BINARY_TREE
 
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
  * struct binary_tree_s - Binary tree node

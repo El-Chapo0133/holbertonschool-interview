@@ -73,7 +73,7 @@ heap_t *binary_tree_sort(heap_t *root)
 			data = root->n;
 			root->n = root->left->n;
 			root->left->n = data;
-			root- = root->left;
+			root = root->left;
 		}
 		else if (!root->left || root->left->n < root->right->n)
 		{
