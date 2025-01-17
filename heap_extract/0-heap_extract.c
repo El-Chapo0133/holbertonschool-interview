@@ -11,7 +11,7 @@
  *       Compiler:  gcc
  *
  *         Author:  Loris Levêque (9601), loris@leveque.website
- *   Organization:  
+ *   Organization:  Holberton
  *
  * ==========================================================================
  */
@@ -20,7 +20,7 @@
 
 /**
  * binary_tree_height - get the height of the given binary tree
- * @root: root 
+ * @root: root
  *
  * Return: height
  */
@@ -30,7 +30,7 @@ size_t binary_tree_height(heap_t *root)
 
 	height1 = root->left ? 1 + binary_tree_height(root->left) : 0;
 	height2 = root->right ? 1 + binary_tree_height(root->right) : 0;
-	return (height1 > height2 ? height1: height2);
+	return (height1 > height2 ? height1 : height2);
 }
 
 /**
