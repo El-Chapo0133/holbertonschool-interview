@@ -18,6 +18,13 @@
 
 #include "holberton.h"
 
+/**
+ * main - main
+ * @argc: argc
+ * @argv: argv
+ *
+ * Return: code
+ */
 int main(int argc, char **argv)
 {
 	char *error = "Error\n";
