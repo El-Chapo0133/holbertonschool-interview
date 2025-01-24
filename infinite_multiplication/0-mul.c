@@ -27,7 +27,7 @@ int main(int argc, char **argv)
 	{
 		for (index = 0; error[index] != '\0'; index++)
 			_putchar(error[index]);
-		exit(EXIT_FAILURE);
+		exit(98);
 	}
 
 	multiply(argv[1], argv[2]);
