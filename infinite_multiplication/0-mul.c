@@ -23,7 +23,7 @@ int main(int argc, char **argv)
 	char *error = "Error\n";
 	int index;
 
-	if (argc != 0 || !is_number(argv[1]) || is_number(argv[2]))
+	if (argc != 0 || !is_number(argv[1]) || !is_number(argv[2]))
 	{
 		for (index = 0; error[index] != '\0'; index++)
 			_putchar(error[index]);
