@@ -42,7 +42,7 @@ int main(int argc, char **argv)
  */
 int is_number(char *str)
 {
-	while (str != '\0')
+	while (*str != '\0')
 	{
 		if (*str < '0' || *str > '9')
 			return (false);
@@ -61,7 +61,7 @@ int is_number(char *str)
 
 void multiply(char *num_1, char *num_2)
 {
-	char mul[10][MAX], answer[MAX1][MAX];
+	char mul[10][MAX], answer[MAX][MAX];
 	int tag, i, j, len_1, len_2, res, value, pos_1, pos_2, row, z;
 
 	for (len_1 = str_len(num_1), len_2 = str_len(num_2), i = 0; i < 10; i++)
@@ -110,7 +110,7 @@ void multiply(char *num_1, char *num_2)
 void sum_and_print(char a[MAX][MAX], int len_1, int len_2)
 {
 	int tag = 0, i, j, sum, value;
-	char total[MAX], ans[MAX2 - 1];
+	char total[MAX], ans[MAX - 1];
 	char *ar;
 
 	for (j = 0; j <= (len_1 + len_2); j++)
