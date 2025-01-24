@@ -61,15 +61,15 @@ int is_number(char *str)
 
 void multiply(char *num_1, char *num_2)
 {
-	char mul[10][MAX1], answer[MAX1][MAX2];
+	char mul[10][MAX], answer[MAX1][MAX];
 	int tag, i, j, len_1, len_2, res, value, pos_1, pos_2, row, z;
 
 	for (len_1 = str_len(num_1), len_2 = str_len(num_2), i = 0; i < 10; i++)
-		for (j = 0; j < MAX1; j++)
+		for (j = 0; j < MAX; j++)
 			mul[i][j] = '.';
 
-	for (i = 0; i < MAX1; i++)
-		for (j = 0; j < MAX2; j++)
+	for (i = 0; i < MAX; i++)
+		for (j = 0; j < MAX; j++)
 			answer[i][j] = '.';
 
 	for (tag = 0, i = 0; i < 10; i++)
@@ -107,10 +107,10 @@ void multiply(char *num_1, char *num_2)
  * @len_2: len os string 2
  * Return: noting.
  */
-void sum_and_print(char a[MAX1][MAX2], int len_1, int len_2)
+void sum_and_print(char a[MAX][MAX], int len_1, int len_2)
 {
 	int tag = 0, i, j, sum, value;
-	char total[MAX2], ans[MAX2 - 1];
+	char total[MAX], ans[MAX2 - 1];
 	char *ar;
 
 	for (j = 0; j <= (len_1 + len_2); j++)
