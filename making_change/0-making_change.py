@@ -14,7 +14,3 @@ def makeChange(coins, total):
         acc += 1
         remain -= coins[i]
     return acc
-
-print(makeChange([1, 2, 25], 37))
-print(makeChange([1256, 54, 48, 16, 102], 1453))
-
