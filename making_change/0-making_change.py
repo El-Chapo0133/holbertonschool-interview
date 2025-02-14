@@ -12,7 +12,7 @@ def _get_change_making_matrix(set_of_coins, r: int):
         m[0][i] = float("inf")  # By default there is no way of making change
     return m
 
-def make_change(coins, n: int):
+def makeChange(coins, n: int):
     """This function assumes that all coins are available infinitely.
     if coins are only to be used once, change m[c][r - coin] to m[c - 1][r - coin].
     n is the number to obtain with the fewest coins.
