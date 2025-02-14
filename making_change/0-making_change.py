@@ -19,7 +19,7 @@ def makeChange(coins, n: int):
     coins is a list or tuple with the available denominations.
     """
 
-    if total < 0:
+    if n < 0:
         return 0
     m = _get_change_making_matrix(coins, n)
     for c, coin in enumerate(coins, 1):
