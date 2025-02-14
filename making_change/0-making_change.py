@@ -4,6 +4,9 @@ Documented yes
 """
 
 def makeChange(coins, total):
+    if total < 0:
+        return 0
+
     acc = 0
     i = len(coins) - 1
     remain = total
