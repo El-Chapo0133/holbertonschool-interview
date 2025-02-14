@@ -37,6 +37,5 @@ def makeChange(coins, n: int):
             #      using coin) plus this 1 extra coin.
             else:
                 m[c][r] = min(m[c - 1][r], 1 + m[c][r - coin])
-    return m[-1][-1]
-    print(change_making(coins, sum))
+    return m[-1][-1] if m[-1][-1] != float('inf') else -1
 
