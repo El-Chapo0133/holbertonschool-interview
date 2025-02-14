@@ -11,6 +11,7 @@ def makeChange(coins, total):
     print ("startup coins: " + str(coins) + " startup total: " + str(total))
     while remain != 0:
         while remain < coins[i]:
+            print ("coin too big: " + str(coins[i]) + "moving i: " + str(i))
             i -= 1
             if i <= 0:
                 return -1
