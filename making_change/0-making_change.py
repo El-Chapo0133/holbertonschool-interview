@@ -3,9 +3,13 @@
 Documented yes
 """
 
+
+
 def makeChange(coins, total):
     if total <= 0:
         return 0
+
+    print (os.path.basename(__file__))
 
     # verify coins is a valid
     if (coins is None or len(coins) == 0):
