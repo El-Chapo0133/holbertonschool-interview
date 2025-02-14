@@ -24,7 +24,7 @@ def makeChange(coins, n: int):
     for c, coin in enumerate(coins, 1):
         for r in range(1, n + 1):
             if coin == r:
-                m[c][r] = m[c][r] & 1
+                m[c][r] = 1
             elif coin > r:
                 m[c][r] = m[c - 1][r]
             else:
