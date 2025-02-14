@@ -17,5 +17,6 @@ def makeChange(coins, total):
                 return -1
         acc += 1
         remain -= coins[i]
+        print ("remain at end of loop: " + remain)
     return acc
 
