@@ -9,7 +9,7 @@ def makeChange(coins, total):
     remain = total
 
     while remain != 0:
-        while remain < coins[i]:
+        while remain <= coins[i]:
             i -= 1
             if i <= 0:
                 return -1
