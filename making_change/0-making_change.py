@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+Documented yes
+"""
 
 def makeChange(coins, total):
     acc = 0
