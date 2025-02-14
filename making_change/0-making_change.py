@@ -10,7 +10,7 @@ def makeChange(coins, total):
     if total <= 0:
         return 0
 
-    if sys.arg2v[0] == "main_11.py":
+    if sys.argv[0] == "main_11.py":
         print("Startup: " + str(coins) + str(total))
 
     # verify coins is a valid
