@@ -1,31 +1,42 @@
 #!/usr/bin/python3
 """
-Documented yes
+Documented lol
 """
 
-import sys
+def _get_change_making_matrix(set_of_coins, r: int):
+    """
+    Documented lol
+    """
+    m = [[0 for _ in range(r + 1)] for _ in range(len(set_of_coins) + 1)]
+    for i in range(1, r + 1):
+        m[0][i] = float("inf")  # By default there is no way of making change
+    return m
 
+def change_making(coins, n: int):
+    """This function assumes that all coins are available infinitely.
+    if coins are only to be used once, change m[c][r - coin] to m[c - 1][r - coin].
+    n is the number to obtain with the fewest coins.
+    coins is a list or tuple with the available denominations.
+    """
 
-def makeChange(coins, total):
-    if total <= 0:
-        return 0
+    m = _get_change_making_matrix(coins, n)
+    for c, coin in enumerate(coins, 1):
+        for r in range(1, n + 1):
+            # Just use the coin
+            if coin == r:
+                m[c][r] = 1
+            # coin cannot be included.
+            # Use the previous solution for making r,
+            # excluding coin
+            elif coin > r:
+                m[c][r] = m[c - 1][r]
+            # coin can be used.
+            # Decide which one of the following solutions is the best:
+            # 1. Using the previous solution for making r (without using coin).
+            # 2. Using the previous solution for making r - coin (without
+            #      using coin) plus this 1 extra coin.
+            else:
+                m[c][r] = min(m[c - 1][r], 1 + m[c][r - coin])
+    return m[-1][-1]
+    print(change_making(coins, sum))
 
-    if sys.argv[0] == "main_11.py":
-        print("Startup: " + str(coins) + str(total))
-
-    # verify coins is a valid
-    if (coins is None or len(coins) == 0):
-        return -1
-
-    change = 0
-    my_coins = sorted(coins, reverse=True)
-    money_left = total
-
-    for coin in my_coins:
-        while (money_left % coin >= 0 and money_left >= coin):
-            change += int(money_left / coin)
-            money_left = money_left % coin
-
-    change = change if money_left == 0 else -1
-
-    return change
