@@ -3,14 +3,14 @@
 Documented yes
 """
 
-import os
+import sys
 
 
 def makeChange(coins, total):
     if total <= 0:
         return 0
 
-    print (os.path.basename(__file__))
+    print (sys.argv[0])
 
     # verify coins is a valid
     if (coins is None or len(coins) == 0):
