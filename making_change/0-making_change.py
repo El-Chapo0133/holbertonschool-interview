@@ -8,6 +8,8 @@ def makeChange(coins, total):
     i = len(coins) - 1
     remain = total
 
+    print (coins)
+    print (total)
     while remain != 0:
         while remain < coins[i]:
             i -= 1
@@ -16,3 +18,4 @@ def makeChange(coins, total):
         acc += 1
         remain -= coins[i]
     return acc
+
