@@ -11,6 +11,8 @@ def makeChange(coins, total):
     i = len(coins) - 1
     remain = total
 
+    if i < 0:
+        return -1
     while remain != 0:
         while remain < coins[i]:
             i -= 1
