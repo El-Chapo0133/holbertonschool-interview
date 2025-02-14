@@ -4,23 +4,22 @@ Documented yes
 """
 
 def makeChange(coins, total):
-    if total < 0:
+    if total <= 0:
         return 0
-    acc = 0
-    i = len(coins) - 1
-    remain = total
-    coins = sorted(coins)
 
-    if i < 0:
+    # verify coins is a valid
+    if (coins is None or len(coins) == 0):
         return -1
-    # print ("startup coins: " + str(coins) + " startup total: " + str(total))
-    while remain != 0:
-        while remain < coins[i]:
-            # print ("coin too big: " + str(coins[i]) + "moving i: " + str(i))
-            i -= 1
-            if i < 0:
-                return -1
-        acc += 1
-        remain -= coins[i]
-        # print ("remain at end of loop: " + str(remain))
-    return acc
+
+    change = 0
+    my_coins = sorted(coins, reverse=True)
+    money_left = total
+
+    for coin in my_coins:
+        while (money_left % coin >= 0 and money_left >= coin):
+            change += int(money_left / coin)
+            money_left = money_left % coin
+
+    change = change if money_left == 0 else -1
+
+    return change
