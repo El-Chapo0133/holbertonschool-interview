@@ -32,7 +32,7 @@ List *create_first_node(List **list, char *str)
  */
 List *add_node_end(List **list, char *str)
 {
-	List *new, *aux;
+	List *new, *aux, *temp;
 
 	if (!list)
 		return (create_first_node(list, str));
@@ -49,8 +49,9 @@ List *add_node_end(List **list, char *str)
 	 * head-1 -> new -> node1 */
 	new->next = aux;
 	new->prev = aux->prev;
-	aux->prev->next = new;
+	temp = aux->prev;
 	aux->prev = new;
+	temp->next = new;
 
 	return (new);
 }
@@ -64,7 +65,7 @@ List *add_node_end(List **list, char *str)
  */
 List *add_node_begin(List **list, char *str)
 {
-	List *new, *aux;
+	List *new, *aux, *temp;
 
 	if (!list)
 		return (create_first_node(list, str));
@@ -81,8 +82,9 @@ List *add_node_begin(List **list, char *str)
 	 * head-1 -> new -> node1 */
 	new->next = aux;
 	new->prev = aux->prev;
+	temp = aux->prev;
 	aux->prev = new;
-	aux->prev->next = new;
+	temp->next = new;
 	*list = new;
 
 	return (new);
