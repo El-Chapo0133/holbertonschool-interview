@@ -1,6 +1,7 @@
 #ifndef H_LIST
 #define H_LIST
 
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 

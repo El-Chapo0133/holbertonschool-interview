@@ -32,9 +32,9 @@ List *create_first_node(List **list, char *str)
  */
 List *add_node_end(List **list, char *str)
 {
-	List *new, *aux, *temp;
+	List *new, *aux;
 
-	if (!list)
+	if (!*list)
 		return (create_first_node(list, str));
 	aux = *list;
 	new = malloc(sizeof(List));
@@ -46,12 +46,11 @@ List *add_node_end(List **list, char *str)
 
 	/* should look like this :
 	 *
-	 * head-1 -> new -> node1 */
+	 * node-1 -> new -> node0 */
 	new->next = aux;
 	new->prev = aux->prev;
-	temp = aux->prev;
+	aux->prev->next = new;
 	aux->prev = new;
-	temp->next = new;
 
 	return (new);
 }
@@ -65,9 +64,9 @@ List *add_node_end(List **list, char *str)
  */
 List *add_node_begin(List **list, char *str)
 {
-	List *new, *aux, *temp;
+	List *new, *aux;
 
-	if (!list)
+	if (!*list)
 		return (create_first_node(list, str));
 	aux = *list;
 	new = malloc(sizeof(List));
@@ -82,9 +81,8 @@ List *add_node_begin(List **list, char *str)
 	 * head-1 -> new -> node1 */
 	new->next = aux;
 	new->prev = aux->prev;
-	temp = aux->prev;
+	aux->prev->next = new;
 	aux->prev = new;
-	temp->next = new;
 	*list = new;
 
 	return (new);
