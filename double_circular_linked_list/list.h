@@ -20,4 +20,6 @@ typedef struct List
   struct List *next;
 } List;
 
+List *create_first_node(List **list, char *str);
+
 #endif
