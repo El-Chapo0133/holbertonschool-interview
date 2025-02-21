@@ -16,9 +16,9 @@
  */
 typedef struct List
 {
-  char *str;
-  struct List *prev;
-  struct List *next;
+	char *str;
+	struct List *prev;
+	struct List *next;
 } List;
 
 List *create_first_node(List **list, char *str);

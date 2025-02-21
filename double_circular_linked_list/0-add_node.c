@@ -44,9 +44,11 @@ List *add_node_end(List **list, char *str)
 	if (!new->str)
 		return (NULL);
 
-	/* should look like this :
+	/**
+	 * should look like this :
 	 *
-	 * node-1 -> new -> node0 */
+	 * node-1 -> new -> node0
+	 */
 	new->next = aux;
 	new->prev = aux->prev;
 	aux->prev->next = new;
@@ -76,9 +78,11 @@ List *add_node_begin(List **list, char *str)
 	if (!new->str)
 		return (NULL);
 
-	/* should look like this :
-	 * new becomes the new head 
-	 * head-1 -> new -> node1 */
+	/**
+	 * should look like this :
+	 * new becomes the new head
+	 * head-1 -> new -> node1
+	 */
 	new->next = aux;
 	new->prev = aux->prev;
 	aux->prev->next = new;
