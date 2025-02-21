@@ -7,7 +7,7 @@
  *
  * Return: newly created node
  */
-List create_first_node(List **list, char *str)
+List *create_first_node(List **list, char *str)
 {
 	List *new;
 
@@ -19,7 +19,7 @@ List create_first_node(List **list, char *str)
 		return (NULL);
 	new->next = new;
 	new->prev = new;
-	$list = new;
+	*list = new;
 	return (new);
 }
 
@@ -36,7 +36,7 @@ List *add_node_end(List **list, char *str)
 
 	if (!list)
 		return (create_first_node(str));
-	aux = (*list);
+	aux = *list;
 	new = malloc(sizeof(List));
 	if (!new)
 		return (NULL);
@@ -68,7 +68,7 @@ List *add_node_begin(List **list, char *str)
 
 	if (!list)
 		return (create_first_node(str));
-	aux = (*list);
+	aux = *list;
 	new = malloc(sizeof(List));
 	if (!new)
 		return (NULL);
